@@ -12,17 +12,23 @@ function bubbleSort(arr) {
   //
   // while(){
     for (var i = 0; i < arr.length - 1; i++){
-      var current = arr[i];
-      var next = arr[i+1];
+      var current;
 
-      if (next < current){
-        current = next;
-        next = arr[i];
+      if (arr[i+1] < current){
+        current = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = current;
         swapCount = swap(swapCount);
       }
-
     }
-    return arr;
+
+      if(swapCount === 0){
+        return arr;
+      }
+
+      else{
+        return bubbleSort(arr);
+      }
   }
 // }
 
